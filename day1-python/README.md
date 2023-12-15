@@ -1,4 +1,4 @@
-## Sum of Values Hidden as Digits in Letters
+## Day 1: Sum of Values Hidden as Digits in Letters
 
 ### Solved in Python
 

@@ -1,4 +1,4 @@
-## Winning numbers score points which are added up
+## Day 4: Winning numbers score points which adds up
 
 ### Solved in Haskell
 

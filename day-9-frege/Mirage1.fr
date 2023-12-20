@@ -1,0 +1,40 @@
+
+
+debug :: String -> a -> a
+debug msg f = if trace msg then f else f
+
+myf :: [Int] -> [Int]
+myf lst = debug (show (head lst)) (tail lst)
+
+
+diffList :: [Int] -> [Int]
+diffList vals =  
+  map diffs $ zip nextvals vals
+  where
+    diffs = \(x, y) -> x - y
+    nextvals = tail vals
+
+
+--- | Predict the final value of this row and return teh completes list
+predict :: [Int] -> [Int]
+predict vals = 
+  if all (==0) vals then
+    vals ++ [0]
+  else
+    vals ++ [last vals + last nextrowextended]
+  where
+    nextrowextended' = debug (show (last nextrowextended) ++ "\n") nextrowextended
+    nextrowextended = predict nextrow
+    nextrow = diffList vals
+
+eachLine :: (String -> String) -> (String -> String)
+eachLine f = unlines . map f . lines
+
+-- workAllLines :: String -> String
+-- workAllLines = eachLine giveMeConst
+
+-- main = interact workAllLines
+main = do
+  --println $ show (predict [0, 3, 6, 9, 12, 15])
+  --println $ show (predict [1, 3, 6, 10, 15, 21])
+  println $ show (predict [10, 13, 16, 21, 30, 45])

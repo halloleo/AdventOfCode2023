@@ -1,4 +1,4 @@
-
+-- Advent of code 2023 Day 9 in Frege
 
 debug :: String -> a -> a
 debug msg f = if trace msg then f else f
